@@ -1,0 +1,72 @@
+
+
+
+
+
+def first_unique_char(my_str):
+    mapp = {}
+    for letter in my_str:
+        if letter not in mapp:
+            mapp[letter] = 1
+        else:
+            mapp[letter] += 1
+
+    single = [k for k, v in mapp.items() if v == 1]
+    if single:
+        return my_str.index(single[0])
+    return -1
+
+
+
+
+
+
+def min_distance(words, word1, word2):
+    index1 = index2 = - 1 
+    min_distance = len(words)
+
+    for i, word in enumerate(words):
+        if word == word1:
+            index1 = i
+        elif word == word2:
+            index2 = i 
+        if index1 != -1 and index2 != -1:
+            min_distance = (min(min_distance, abs(index1 - index2)))
+
+    return min_distance if index1 != -1 and index2 != -1 else -1
+
+
+
+#-----------
+'''
+words = ["the", "quick", "brown", "fox", "jumped", "the"]
+dist1 = min_distance(words, "quick", "jumped")
+dist2 = min_distance(words, "the", "jumped")
+print(dist1)
+print(dist2)
+
+words2 = ["code", "path", "code", "contribute",  "practice"]
+dist3 = min_distance(words2, "code", "practice")
+print(dist3)
+'''
+
+
+# unit 2 
+
+
+
+def update_score(scores, players, points):
+    if players in scores:
+        scores[players] += points 
+    else:
+        scores[players] = points 
+    return scores 
+
+
+
+def dict_intersection(d1, d2):
+    pass
+
+
+d1 = {'a': 1, 'b': 2, 'c': 3}
+d2 = {'b': 2, 'c': 4}
